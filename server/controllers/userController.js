@@ -1,4 +1,4 @@
-//? .env initialization
-require("dotenv").config();
-
+//!Router variable calling our express library
 const router = require("express").Router();
+
+module.exports = router;
