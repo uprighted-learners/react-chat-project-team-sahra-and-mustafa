@@ -14,7 +14,7 @@ app.use(express.json());
 const userController = require("../server/controllers/userController");
 
 //userController
-//app.use("/user", userController);
+app.use("/user", userController);
 
 //!mongoose initialization
 const mongoose = require("mongoose");
