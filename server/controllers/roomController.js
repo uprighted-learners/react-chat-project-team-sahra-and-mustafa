@@ -1,6 +1,6 @@
 //!Router variable calling our express library
 const router = require("express").Router();
-//! User variable holding our User model
-const User = require("../models/user_model");
+//! Room variable holding our room model
+const Room = require("../models/room_model");
 
 module.exports = router;
