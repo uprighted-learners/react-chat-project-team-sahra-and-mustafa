@@ -1,4 +1,4 @@
-//?env initialization
+//! dotenv initialization
 require("dotenv").config();
 
 //!express initalization
@@ -10,11 +10,23 @@ const app = express();
 //! variable for importing json
 app.use(express.json());
 
-//userController variable
+//?userController variable
 const userController = require("../server/controllers/userController");
+
+//?messageController variable
+const messageController = require("./controllers/messageController");
+
+//?roomController variable
+const roomController = require("./models/room_model");
 
 //userController
 app.use("/user", userController);
+
+//roomController
+app.use("/room", roomController);
+
+//messageController
+app.use("/message", messageController);
 
 //!mongoose initialization
 const mongoose = require("mongoose");
