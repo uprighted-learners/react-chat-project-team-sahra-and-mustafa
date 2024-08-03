@@ -10,23 +10,22 @@ const app = express();
 //! variable for importing json
 app.use(express.json());
 
-//?userController variable
-const userController = require("../server/controllers/userController");
-
-//?messageController variable
+// userController variable
+const userController = require("./controllers/userController");
+// messageController variable
 const messageController = require("./controllers/messageController");
 
-//?roomController variable
-const roomController = require("./models/room_model");
+// roomController variable
+const roomController = require("./controllers/roomController");
 
 //userController
-app.use("/user", userController);
+app.use("/api/users", userController);
 
 //roomController
-app.use("/room", roomController);
+app.use("/api/rooms", roomController);
 
 //messageController
-app.use("/message", messageController);
+app.use("/api", messageController);
 
 //!mongoose initialization
 const mongoose = require("mongoose");
@@ -48,6 +47,10 @@ db.once("open", () => {
   console.log("*".repeat(30));
   console.log(`Your are connected to \n ${MongoDB}`);
   console.log("*".repeat(30));
+});
+
+db.on("error", (err) => {
+  console.error("MongoDB connection error:", err);
 });
 
 //LocalHost Browser connection
