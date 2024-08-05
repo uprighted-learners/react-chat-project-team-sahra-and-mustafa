@@ -49,7 +49,7 @@ router.post("/room/:roomId/messages", async (req, res) => {
 router.put("/rooms/:roomId/messages/:messageId", async (req, res) => {
   try {
     const updatedMessage = await Message.findByIdAndUpdate(
-      req.params.messagedId,
+      req.params.messageId,
       { $set: req.body },
       { new: true }
     );

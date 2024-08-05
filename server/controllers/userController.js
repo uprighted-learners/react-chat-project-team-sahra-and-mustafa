@@ -18,12 +18,13 @@ router.post("/create", async (req, res) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
+      password: req.body.password,
       password: hashedPassword,
     });
 
     //saving the user to database
     const savedUser = await user.save();
-    res.status(201).json(savedUser);
+    res.status(201).json({ savedUser });
   } catch (err) {
     res.status(500).json({
       Error: err.message,
