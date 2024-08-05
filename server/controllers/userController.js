@@ -18,13 +18,13 @@ router.post("/create", async (req, res) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
-      password: req.body.password,
+      //password: req.body.password,
       password: hashedPassword,
     });
 
     //saving the user to database
     const savedUser = await user.save();
-    res.status(201).json({ savedUser });
+    res.status(201).json(savedUser);
   } catch (err) {
     res.status(500).json({
       Error: err.message,
@@ -50,13 +50,12 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ message: "Invalid email or password" });
 
     // JWT token
-    const token = jwt.sign(
-      { _id: user._id, isAdmin: user.isAdmin },
-      process.env.JWT_SECRET,
-      { expiresIn: "1h" }
-    );
-
-    res.status(200).json({ token });
+    const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+    res
+      .status(200)
+      .json({ Msg: "USer signed In!", User: user[0], Token: token });
   } catch (err) {
     res.status(500).json({
       Error: err.message,

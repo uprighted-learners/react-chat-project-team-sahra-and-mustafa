@@ -25,7 +25,7 @@ app.use("/users", userController);
 app.use("/rooms", roomController);
 
 //messageController
-app.use("/message", messageController);
+app.use("/", messageController);
 
 //!mongoose initialization
 const mongoose = require("mongoose");
