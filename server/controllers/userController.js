@@ -24,7 +24,7 @@ router.post("/create", async (req, res) => {
 
     //saving the user to database
     const savedUser = await user.save();
-    res.status(201).json(savedUser);
+    res.status(201).json({ savedUser });
   } catch (err) {
     res.status(500).json({
       Error: err.message,

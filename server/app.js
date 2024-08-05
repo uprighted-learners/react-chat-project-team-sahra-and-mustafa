@@ -19,13 +19,13 @@ const messageController = require("./controllers/messageController");
 const roomController = require("./controllers/roomController");
 
 //userController
-app.use("/api/users", userController);
+app.use("/users", userController);
 
 //roomController
-app.use("/api/rooms", roomController);
+app.use("/rooms", roomController);
 
 //messageController
-app.use("/api", messageController);
+app.use("/message", messageController);
 
 //!mongoose initialization
 const mongoose = require("mongoose");
@@ -50,7 +50,7 @@ db.once("open", () => {
 });
 
 db.on("error", (err) => {
-  console.error("MongoDB connection error:", err);
+  console.error("Mongodb connection error:", err);
 });
 
 //LocalHost Browser connection
