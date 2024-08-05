@@ -10,6 +10,7 @@ const app = express();
 //! variable for importing json
 app.use(express.json());
 
+const validateFile = require("./middleware/validate");
 // userController variable
 const userController = require("./controllers/userController");
 // messageController variable
@@ -20,6 +21,7 @@ const roomController = require("./controllers/roomController");
 
 //userController
 app.use("/users", userController);
+app.use(validateFile);
 
 //roomController
 app.use("/rooms", roomController);

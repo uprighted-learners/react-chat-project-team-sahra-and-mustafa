@@ -1,16 +1,16 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user_model");
 
-const validateSession = async (req, res, next) => {
-  const auth = req.headers.authorization;
-  console.log("Current header provided with request:", auth);
+const validateFile = async (req, res, next) => {
   try {
+    const auth = req.headers.authorization;
+    console.log("Current header provided with request:", auth);
     if (!auth) throw new Error("Unauthorized");
 
     const token = auth.split(" ")[1];
 
     if (!token) throw new Error("Unauthoized");
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = await jwt.verify(token, process.env.JWT_SECRET);
 
     //verify (string, secret)
 
@@ -33,4 +33,4 @@ const validateSession = async (req, res, next) => {
   }
 };
 
-module.exports = validateSession;
+module.exports = validateFile;
