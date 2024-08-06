@@ -7,8 +7,40 @@ const Room = require("../models/room_model");
 //! User variable holding our User model
 const User = require("../models/user_model");
 
+//create a room
+router.post("/create-room", async (req, res) => {
+  try {
+    const room = new Room({
+      name: req.body.name,
+      description: req.body.description,
+      addedUsers: req.body.addedUsers,
+    });
+
+    const createdRoom = await room.save();
+    console.log(createdRoom);
+    res.status(200).json({ purple: createdRoom });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      Error: err.message,
+    });
+  }
+});
+
+//display all rooms
+router.get("/all", async (req, res) => {
+  try {
+    const rooms = await Room.find();
+    res.status(200).json(rooms);
+  } catch (err) {
+    res.status(500).json({
+      Error: err.message,
+    });
+  }
+});
+
 // Get all messages in a room
-router.get("/rooms/:roomId/messages", async (req, res) => {
+router.get("/:roomId/messages", async (req, res) => {
   try {
     const messages = await Message.find({ room: req.params.roomId });
     res.status(200).json(messages);
@@ -20,7 +52,7 @@ router.get("/rooms/:roomId/messages", async (req, res) => {
 });
 
 // Create a new message in a room
-router.post("/rooms/:roomId/messages", async (req, res) => {
+router.post("/:roomId/messages", async (req, res) => {
   try {
     const room = await Room.findById(req.params.roomId);
     if (!room) return res.status(404).json({ message: "Room not found" });
@@ -45,7 +77,7 @@ router.post("/rooms/:roomId/messages", async (req, res) => {
 });
 
 // Update a message in a room
-router.put("/rooms/:roomId/messages/:messageId", async (req, res) => {
+router.put("/:roomId/messages/:messageId", async (req, res) => {
   try {
     const updatedMessage = await Message.findByIdAndUpdate(
       req.params.messageId,
@@ -65,7 +97,7 @@ router.put("/rooms/:roomId/messages/:messageId", async (req, res) => {
 });
 
 // Delete a message in a room
-router.delete("/rooms/:roomId/messages/:messageId", async (req, res) => {
+router.delete("/:roomId/messages/:messageId", async (req, res) => {
   try {
     const deletedMessage = await Message.findByIdAndDelete(
       req.params.messageId

@@ -10,9 +10,12 @@ const app = express();
 //! variable for importing json
 app.use(express.json());
 
+app.use(express.urlencoded({ extended: true }));
+
 const validateFile = require("./middleware/validate");
 // userController variable
 const userController = require("./controllers/userController");
+
 // messageController variable
 const messageController = require("./controllers/messageController");
 
@@ -21,13 +24,15 @@ const roomController = require("./controllers/roomController");
 
 //userController
 app.use("/users", userController);
+
 app.use(validateFile);
 
 //roomController
+
 app.use("/rooms", roomController);
 
 //messageController
-app.use("/", messageController);
+app.use("/message", messageController);
 
 //!mongoose initialization
 const mongoose = require("mongoose");

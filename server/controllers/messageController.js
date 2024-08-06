@@ -20,7 +20,7 @@ router.get("/rooms/:roomId/message", async (req, res) => {
 });
 
 //create a new message in a room
-router.post("/room/:roomId/messages", async (req, res) => {
+router.post("/create", async (req, res) => {
   try {
     const room = await Room.findbyId(req.params.roomId);
     if (!room) return res.status(404).json({ message: "User not found" });

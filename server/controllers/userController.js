@@ -23,11 +23,16 @@ router.post("/create", async (req, res) => {
       password: hashedPassword,
     });
 
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1 day",
+    });
+
     //saving the user to database
     const savedUser = await user.save();
     res.status(201).json({
       savedUser,
       Msg: "User successfully saved",
+      Token: token,
     });
   } catch (err) {
     res.status(500).json({
