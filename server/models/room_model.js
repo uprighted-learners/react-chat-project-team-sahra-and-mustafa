@@ -7,7 +7,7 @@ const RoomSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: String,
+    required: true,
   },
   addedUsers: {
     type: String,
