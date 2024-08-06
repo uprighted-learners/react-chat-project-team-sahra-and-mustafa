@@ -16,7 +16,7 @@ const validateFile = async (req, res, next) => {
 
     console.log("Decrypted payload:", decoded);
 
-    const user = await User.findById(decoded._id);
+    const user = await User.findById(decoded.id);
 
     if (!user) throw new Error("User not found");
 
