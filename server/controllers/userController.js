@@ -2,12 +2,13 @@
 const router = require("express").Router();
 //! User variable holding our User model
 const User = require("../models/user_model");
+//! user variable holding our bcrypt call
 const bcrypt = require("bcryptjs");
+//! user variable holding our jwt call
 const jwt = require("jsonwebtoken");
 
-//creating new user/hashing password
-
 // Creating a new user and hashing the password
+//! create endpoint
 router.post("/create", async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(10);
@@ -22,9 +23,17 @@ router.post("/create", async (req, res) => {
       password: hashedPassword,
     });
 
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1 day",
+    });
+
     //saving the user to database
     const savedUser = await user.save();
-    res.status(201).json(savedUser);
+    res.status(201).json({
+      savedUser,
+      Msg: "User successfully saved",
+      Token: token,
+    });
   } catch (err) {
     res.status(500).json({
       Error: err.message,
