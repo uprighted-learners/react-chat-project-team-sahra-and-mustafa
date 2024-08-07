@@ -26,11 +26,18 @@ const validateFile = async (req, res, next) => {
 
     return next();
   } catch (err) {
-    console.log(err);
-    res.status(400).json({
-      Error: err.message,
-    });
+    if (err.name === "TokenExpiredError") {
+      return res.status(401).json({ error: "Token expired" });
+    } else if (err.name === "JsonWebTokenError") {
+      return res.status(401).json({ error: "Invalid token" });
+    } else {
+      return res.status(500).json({ error: err.message });
+    }
   }
 };
 
 module.exports = validateFile;
+
+/* console.log(err);
+  res.status(400).json({
+    Error: err.message, */
