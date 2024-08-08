@@ -71,7 +71,7 @@ router.put("/update/:id", async (req, res) => {
 });
 
 // delete a message in a room
-router.delete("/rooms/:roomId/messages/:messageId", async (req, res) => {
+router.delete("/delete/:messageId", async (req, res) => {
   try {
     const deletedMessage = await Message.findByIdAndDelete(
       req.params.messageId
