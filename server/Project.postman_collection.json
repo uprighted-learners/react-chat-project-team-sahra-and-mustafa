@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "767d6688-2390-4dc4-aabb-28ea9c2adc88",
+		"name": "Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36789503"
+	},
+	"item": [
+		{
+			"name": "rooms",
+			"item": [
+				{
+					"name": "creating a room",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ali\",\r\n    \"description\": \"girl\",\r\n    \"addedUsers\": [\"\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/rooms/create-room",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"rooms",
+								"create-room"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "displaying all rooms",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ali\",\r\n    \"description\": \"girl\",\r\n    \"addedUsers\": [\"\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/rooms/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"rooms",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjE4MWU0MTJhNWIyMDI0ZGU2MDk0MSIsImlhdCI6MTcyMjkwOTE1NiwiZXhwIjoxNzIyOTk1NTU2fQ.cS5Ljdqk4vi5HM2ae6cpiZX0wVVdyH37XouN_5dB3W4",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "creating a user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjE2ZDBjYTI2Y2JiZTQxNTM5ODMzMyIsImlhdCI6MTcyMjkwMzgyMCwiZXhwIjoxNzIyOTkwMjIwfQ.fgNZsDQvGyccKX27L1E2FYFHkMXBkGI_4kix1_m6PFE",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"amazing\",\r\n    \"lastName\": \"grace\",\r\n    \"email\": \"whoa@whoa.com\",\r\n    \"password\": \"word\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/users/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjE2ZDBjYTI2Y2JiZTQxNTM5ODMzMyIsImlhdCI6MTcyMjkwMzgyMCwiZXhwIjoxNzIyOTkwMjIwfQ.fgNZsDQvGyccKX27L1E2FYFHkMXBkGI_4kix1_m6PFE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjE2ZDBjYTI2Y2JiZTQxNTM5ODMzMyIsImlhdCI6MTcyMjkwMzgyMCwiZXhwIjoxNzIyOTkwMjIwfQ.fgNZsDQvGyccKX27L1E2FYFHkMXBkGI_4kix1_m6PFE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"amazing\",\r\n    \"lastName\": \"grace\",\r\n    \"email\": \"oh@uhoh.com\",\r\n    \"password\": \"word\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messages",
+			"item": [
+				{
+					"name": "creating a message",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjE2ZDBjYTI2Y2JiZTQxNTM5ODMzMyIsImlhdCI6MTcyMjkwMzgyMCwiZXhwIjoxNzIyOTkwMjIwfQ.fgNZsDQvGyccKX27L1E2FYFHkMXBkGI_4kix1_m6PFE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjE2ZDBjYTI2Y2JiZTQxNTM5ODMzMyIsImlhdCI6MTcyMjkwMzgyMCwiZXhwIjoxNzIyOTkwMjIwfQ.fgNZsDQvGyccKX27L1E2FYFHkMXBkGI_4kix1_m6PFE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"when\": \"October 1\",\r\n    \"user\": \"66b04c96a71b0b76751a94a9\",\r\n    \"room\": \"Main\",\r\n    \"body\": \"We really want to get A on this project!\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/messages/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"messages",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
