@@ -1,0 +1,136 @@
+
+
+.flex_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.header{
+    
+    border: 2px solid white;
+    box-shadow: 2px 2px white;
+    border-radius: 10em 1em;
+    padding: 2em;
+    background-color: orangered;
+    margin-bottom: 1em;
+    font-family:fantasy;
+    text-align: center;
+    
+    
+}
+/* form Container/border/input field */
+
+.form_container{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.form_border{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid white;
+    box-shadow: 5px 5px white;
+    border-radius: 0em 6em;
+    padding: 2em;
+    background-color: orangered;
+    
+}
+
+h4{
+    display: inline-block;
+    border-radius: 6em 1em;
+    border: 2px solid black;
+    box-shadow:  3px 3px  black;
+    padding: 1em 3em;
+    color: black;
+    background-color: white;
+    opacity: .8;
+    
+}
+
+
+
+.input_fields{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+
+.firstName{
+    padding: 1em 5em;
+    margin-bottom: 1em;
+    border-radius: 2em;
+    text-align: center;
+    border: 2px solid black;
+    box-shadow: 2px 2px black;
+    color: white;
+}
+.lastName{
+    padding: 1em 5em;
+    margin-bottom: 1em;
+    border-radius: 2em;
+    text-align: center;
+    border: 2px solid black;
+    box-shadow: 2px 2px black;
+    
+}
+.email{
+    padding: 1em 5em;
+    margin-bottom: 1em;
+    border-radius: 2em;
+    text-align: center;
+    border: 2px solid black;
+    box-shadow: 2px 2px black;
+    
+}
+.password{
+    padding: 1em 5em;
+    margin-bottom: 2em;
+    border-radius: 2em;
+    text-align: center;
+    border: 2px solid black;
+    box-shadow: 2px 2px black;
+    
+}
+.signup_btn{
+
+    border-radius: 1em 6em;
+    background-color: orangered;
+    border: 2px solid black;
+    box-shadow: 5px 5px black;
+    font-family:fantasy;
+    font-weight: bolder;
+    font-size: 1em;
+    color: black;
+    letter-spacing: 2px;
+
+
+}
+
+.signup_btn:hover{
+    cursor: pointer;
+    background-color: white;
+}
+.firstName:hover{
+    cursor: pointer;
+    background-color: white;
+}
+.lastName:hover{
+    cursor: pointer;
+    background-color: white;
+}
+.email:hover{
+    cursor: pointer;
+    background-color: white;
+}
+.password:hover{
+    cursor: pointer;
+    background-color: white;
+}
