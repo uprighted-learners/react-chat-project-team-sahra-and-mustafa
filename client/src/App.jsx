@@ -36,7 +36,7 @@ useEffect(() => {
         {/* Header/Title of Project*/}
         < div className='flex_container'>
           <div className='header'>
-            <h3>Upright Educations</h3>
+            <h3>Upright Education</h3>
             <h2>Sahra & Mustafa's</h2>
             <h3>Application</h3>
           </div>
@@ -45,7 +45,7 @@ useEffect(() => {
 
       <main>
         {/* Log Out tenary operator & button onclick event */}
-          {  !personalToken ? <Auth updateToken={updateToken}/> :   <button style={{position: "absolute", top: 0, right: 0, margin: "1em"}} onClick={() =>  removeToken()}>Logout</button>
+          {  !personalToken ? <Auth updateToken={updateToken}/> :   <button style={{position: "absolute", top: 0, right: 0, margin: "1em", backgroundColor: "orangered"}} onClick={() =>  removeToken()}>Logout</button>
           }
 
                 
