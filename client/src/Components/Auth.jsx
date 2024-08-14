@@ -46,6 +46,7 @@ const Auth = (props) => {
             setErrMsg(err.message);
         }
     }
+    
 
   return (
     
