@@ -4,11 +4,22 @@ require("dotenv").config();
 //!express initalization
 const express = require("express");
 
+//! cors initialization
+const cors = require("cors");
+
 //!variable holding our express call
 const app = express();
 
 //! variable for importing json
 app.use(express.json());
+
+//! cors call
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:5173"],
+  })
+);
 
 app.use(express.urlencoded({ extended: true }));
 

@@ -6,7 +6,7 @@ import './App.css'
 
 //! App function
 function App() {
-const [personalToken, setPersonalToken] = useState(false)
+const [personalToken, setPersonalToken] = useState("")
   
 //! useEffect for storing token in local storage
 useEffect(() => {
