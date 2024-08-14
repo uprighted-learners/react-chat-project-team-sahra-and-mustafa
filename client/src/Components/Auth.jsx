@@ -3,7 +3,7 @@ import React from 'react'
 import "./Css_files/Auth.css"
 import {useState} from "react"
 //!Auth Component
-const Auth = () => {
+const Auth = (props) => {
     // signup state for tenary operator form switch
     const [isSignUp, setIsSignUp] = useState(true)
     // signup form input states
@@ -13,6 +13,7 @@ const Auth = () => {
     const [password, setPassword] = useState(" ")
         // error msg State
     const [errMsg, setErrMsg] = useState(" ")
+    console.log(props.updateToken);
 
     //! helper function to handle sign up form input for server recognition
     const handleSignUp = async () => {
@@ -25,7 +26,7 @@ const Auth = () => {
                 headers: {
                     "Content-Type" : "application/json"
                 },
-                body:JSON.stringify({
+                body: JSON.stringify({
                     firstName: firstName,
                     lastName: lastName,
                     email: email,
@@ -57,13 +58,13 @@ const Auth = () => {
               <h4>{ isSignUp ?  "SignUp" : "LogIn"} Form {errMsg}</h4>
             </div>
          
-          <label>FirstName</label>
+          
           <input className='firstName' value={firstName} placeholder='FirstName' onChange={(e) => setFirstName(e.target.value)} required />
-          <label>lasttName</label>
+          
           <input className='lastName' value={lastName} placeholder='LastName' onChange={(e) => setLastName(e.target.value)} required/>
-          <label>Email</label>
+          
           <input className='email' value={email} placeholder='Email' onChange={(e) => setEmail(e.target.value)} required/>
-          <label>Password</label>
+          
           <input className='password' value={password} placeholder='Password' minLength={5} maxLength={12} onChange={(e)=> setPassword(e.target.value)} required/>
           
 
