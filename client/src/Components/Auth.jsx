@@ -77,7 +77,7 @@ const Auth = (props) => {
         
             <button onClick={() => setIsSignUp((prev) => !prev)}>LogIn</button>
            
-          </div>
+    </div>
   )
 }
 
