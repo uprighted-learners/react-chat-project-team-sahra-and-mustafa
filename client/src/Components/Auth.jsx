@@ -6,13 +6,14 @@ import {useState} from "react"
 const Auth = (props) => {
     // signup state for tenary operator form switch
     const [isSignUp, setIsSignUp] = useState(true)
+   
     // signup form input states
-    const [firstName, setFirstName] = useState(" ")
-    const [lastName, setLastName] = useState(" ")
-    const [email, setEmail] = useState(" ")
-    const [password, setPassword] = useState(" ")
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
         // error msg State
-    const [errMsg, setErrMsg] = useState(" ")
+    const [errMsg, setErrMsg] = useState("")
     console.log(props.updateToken);
 
     //! helper function to handle sign up form input for server recognition
@@ -20,18 +21,21 @@ const Auth = (props) => {
         try {
             setErrMsg(" ")
             //? fetch call for local host to server
-            const result = await fetch( "http://localhost:3001/users/create", {
+            const result = await fetch( `http://localhost:3001/users/${isSignUp ? "create" : "login"} `, {
                 //post endpoint call with json body matching keys: for form input validation
                 method: "POST",
                 headers: {
                     "Content-Type" : "application/json"
                 },
-                body: JSON.stringify({
+                body: JSON.stringify(isSignUp ? {
                     firstName: firstName,
                     lastName: lastName,
                     email: email,
                     password: password,
-                })
+                } : {
+                  email: email,
+                  password: password,
+                } )
             })
             
 
@@ -59,10 +63,11 @@ const Auth = (props) => {
               <h4>{ isSignUp ?  "SignUp" : "LogIn"} Form {errMsg}</h4>
             </div>
          
-          
+          {isSignUp && <>
           <input className='firstName' value={firstName} placeholder='FirstName' onChange={(e) => setFirstName(e.target.value)} required />
           
           <input className='lastName' value={lastName} placeholder='LastName' onChange={(e) => setLastName(e.target.value)} required/>
+          </>  }
           
           <input className='email' value={email} placeholder='Email' onChange={(e) => setEmail(e.target.value)} required/>
           
@@ -74,6 +79,9 @@ const Auth = (props) => {
             </button>
 
          </form>
+          
+            
+
         
             <button onClick={() => setIsSignUp((prev) => !prev)}>LogIn</button>
            
