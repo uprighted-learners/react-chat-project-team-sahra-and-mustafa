@@ -40,17 +40,18 @@ const Messages = (props) => {
   return (
         <>
         <div className='message_container'>
+
             
-          <form className='form_MessageBorder' onSubmit={(e) => {
-            e.preventDefault(
-                createMessage()
-            )
-          }}>
+          <form className='form_MessageBorder' onSubmit={() => {
+              
+            createMessage()
+            }}>
+              <h4>Message Form</h4>
 
             <input type='date' value={when} onChange={(e) => setWhen(e.target.value)} placeholder='xx/xx/xxxx' />
             <input type='text' value={user} onChange={(e) => setUser(e.target.value)} placeholder='User' required />
-            <input type='text' value={room} onChange={(e) => setRoom(e.target.room)} placeholder='Room' required />
-            <input type='text' value={body} onChange={(e) => setBody(e.target.body)} placeholder='Text' required/>
+            <input type='text' value={room} onChange={(e) => setRoom(e.target.value)} placeholder='Room' required />
+            <input type='text' value={body} onChange={(e) => setBody(e.target.value)} placeholder='Text' required/>
             <div>
                 <button type='submit' className='message_submit'>
                     Submit

@@ -81,7 +81,7 @@ const Auth = (props) => {
           <input className='password' value={password} placeholder='Password' minLength={5} maxLength={12} onChange={(e)=> setPassword(e.target.value)} required/>
            
               
-            <button type='submit' className='signup_btn'>
+            <button type='submit' className='signup_btn' >
               Login
             </button>
          </form>
