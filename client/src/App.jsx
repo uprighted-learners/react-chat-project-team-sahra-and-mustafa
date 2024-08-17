@@ -1,5 +1,7 @@
 //! Import Area
 import Auth from './Components/Auth'
+import Messages from './Components/Messages'
+
 import { useState, useEffect } from 'react'
 
 import './App.css'
@@ -10,7 +12,7 @@ const [personalToken, setPersonalToken] = useState("")
   
 //! useEffect for storing token in local storage
 useEffect(() => {
-  let token = localStorage.getItem("goldenToken")
+  let token = localStorage.getItem("myToken")
   if(token) {
     setPersonalToken(token)
   }
@@ -19,7 +21,7 @@ useEffect(() => {
  //! token callback update
  const updateToken = (token) => {
   console.log("Token has been Updated!");
-  localStorage.setItem("goldenToken", token)
+  localStorage.setItem("myToken", token)
   setPersonalToken(token)
 
  }
@@ -44,9 +46,11 @@ useEffect(() => {
     </header>
 
       <main>
-        {/* Log Out tenary operator & button onclick event */}
+        {/* Log Out tenary operator & button onclick event 
+          */}
           {  !personalToken ? <Auth updateToken={updateToken}/> :   <button style={{position: "absolute", top: 0, right: 0, margin: "1em", backgroundColor: "orangered"}} onClick={() =>  removeToken()}>Logout</button>
           }
+        {/* <Messages/> */}
 
                 
       </main>
