@@ -47,10 +47,12 @@ useEffect(() => {
 
       <main>
         {/* Log Out tenary operator & button onclick event 
-          */}
           {  !personalToken ? <Auth updateToken={updateToken}/> :   <button style={{position: "absolute", top: 0, right: 0, margin: "1em", backgroundColor: "orangered"}} onClick={() =>  removeToken()}>Logout</button>
           }
-        {/* <Messages/> */}
+          */}
+        {/*
+         */}
+         <Messages/> 
 
                 
       </main>
