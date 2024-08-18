@@ -32,6 +32,7 @@ useEffect(() => {
     setPersonalToken("")
     localStorage.clear()
   }
+  
   return (
     <><header>
 
@@ -54,8 +55,8 @@ useEffect(() => {
 
         {/*
             <Messages/>
+            */}
 
-         */}
          
 
                 
