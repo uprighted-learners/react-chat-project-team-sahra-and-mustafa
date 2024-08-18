@@ -1,15 +1,40 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import "./Css_files/Message.css"
 
 
 const Messages = (props) => {
+    const [results, setResults] = useState([])
     const [when, setWhen] = useState("")
     const [text, setText] = useState("")
     const [user, setUser] = useState("")
     const [room, setRoom] = useState("")
     const [body, setBody] = useState("")  
     
+    //! displayMessages endpoint
+    const displayMessages = async () => {
+        //? try catch to establish message display data
+        try {
+            let result = await fetch("http;//localhost:3001/message/display ", {
+                headers: {
+                    Authorization: "Bearer" + " " + localStorage.getItem("myToken")
+                }
+            })
+            let json = await result.json()
+            console.log(json);
+            setResults(json.Results)
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    useEffect(() => {
+        displayMessages()
+        console.log("It Works");
+    }, [])
+    
+    
+    
+    //! createMessage endpoint   
     const createMessage = async (e) => {
         try {
             e.preventDefault()
@@ -18,7 +43,7 @@ const Messages = (props) => {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json",
-                Authorization : `Bearer ${localStorage.getItem("")}`
+                Authorization : `Bearer ${localStorage.getItem("myToken")}`
             },
             body: JSON.stringify({
                 when: when,
@@ -28,7 +53,6 @@ const Messages = (props) => {
             })
         })
         const json = await result.json()
-
         console.log(json);
         props.updataToken(json.Token)       
        } catch (err) {
@@ -36,16 +60,14 @@ const Messages = (props) => {
        }
 
     } 
+    //TODO: Create a new array from [resultts] useState results.map()!
 
   return (
         <>
         <div className='message_container'>
 
             
-          <form className='form_MessageBorder' onSubmit={() => {
-              
-            createMessage()
-            }}>
+          <form className='form_MessageBorder' onSubmit={createMessage}>
               <h4>Message Form</h4>
 
             <input type='date' value={when} onChange={(e) => setWhen(e.target.value)} placeholder='xx/xx/xxxx' />
