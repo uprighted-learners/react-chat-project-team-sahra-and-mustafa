@@ -10,6 +10,7 @@ const Rooms = () => {
 
   //useEffect hook used to run components
   useEffect(()=>{
+   
     //Function to fetch the lost of rooms from Api
    
     const fetchRooms = async () => {
