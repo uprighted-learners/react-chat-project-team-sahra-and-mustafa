@@ -34,8 +34,8 @@ useEffect(() => {
   }
   
   return (
-    <><header>
-
+    <>
+    <header>
         {/* Header/Title of Project*/}
         < div className='flex_container'>
           <div className='header'>
@@ -54,8 +54,8 @@ useEffect(() => {
           }
 
         {/*
-            <Messages/>
             */}
+            <Messages/>
 
          
 
