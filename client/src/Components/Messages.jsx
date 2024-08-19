@@ -24,7 +24,7 @@ const Messages = (props) => {
             console.log(json);
             setResults(json.Results)
         } catch (err) {
-            console.log(err);
+            console.log(err.message);
         }
     }
     useEffect(() => {
@@ -54,13 +54,18 @@ const Messages = (props) => {
         })
         const json = await result.json()
         console.log(json);
-        props.updataToken(json.Token)       
+        displayMessages()      
        } catch (err) {
         console.log(err.message);
        }
 
     } 
     //TODO: Create a new array from [resultts] useState results.map()!
+    const viewMessages = () => {
+        return results.map((message) => <div style={{border: "3em solid black", padding: "2em"}} key={post._id}>
+            <h2>{message.text}</h2>
+        </div>)
+    }
 
   return (
         <>
@@ -80,6 +85,7 @@ const Messages = (props) => {
                 </button>
             </div>
           </form>
+          {viewMessages()}
         </div>
         </>
     )
