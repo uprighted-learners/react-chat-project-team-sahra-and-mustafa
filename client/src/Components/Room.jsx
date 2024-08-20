@@ -11,6 +11,8 @@ const Room = ({ selectedRoom }) => {
   // Fetch messages when the component mounts or roomId changes
   const fetchMessages = async () => {
     try {
+      // to clear the messages before fetching new one
+      setMessages([]);
       const response = await fetch(
         `http://localhost:3001/message/display/${selectedRoom._id}`,
         {
