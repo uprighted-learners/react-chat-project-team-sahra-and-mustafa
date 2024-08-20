@@ -1,10 +1,8 @@
 import React, {useEffect, useState } from 'react';
-
 // Import MessageInput component
 // Import MessageDisplay component
 import MessageInput from './MessageInput'; 
-import MessageDisplay from './MessagDisplay'; 
-
+import MessageDisplay from './MessageDisplay'; 
 
 // Room component manages the chat room, fetching, displaying, and sending messages
 const Room = ({ match }) => {
@@ -20,6 +18,7 @@ const Room = ({ match }) => {
               Authorization: `Bearer ${localStorage.getItem('myToken')}`, // Authorization header with JWT token
             },
           });
+
           //parse JSON response and update messages state with the fetched messages
           const data = await response.json(); 
           setMessages(data.Results); 
@@ -29,7 +28,6 @@ const Room = ({ match }) => {
           console.error('Failed to fetch messages:', err); 
         }
       };
-  
 
       //callback when component mounts or roomid changes
       //dependency array [roomId] will ensure it runs when roomId changes
@@ -38,7 +36,6 @@ const Room = ({ match }) => {
   
     // Function to handle sending a new message
     //POST Method specified, content-type, and Authorization header with JWT token
-
 
     const handleSendMessage = async (message) => {
       try {
@@ -57,7 +54,6 @@ const Room = ({ match }) => {
         });
 
         // parse JSON response and update messages state with new message
-
         const json = await response.json(); 
         setMessages([...messages, json]); 
       } catch (err) {
@@ -75,6 +71,8 @@ const Room = ({ match }) => {
         {/* dandles sending new messages */}
         
         <MessageDisplay messages={messages} />  
+
+
         <MessageInput onSendMessage={handleSendMessage} />  
       </div>
     );

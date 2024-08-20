@@ -1,8 +1,8 @@
 import React from 'react';
 
 // Message display component reenders list of message in the chat room
-const MessageDisplay = ({ messages }) => {
 
+const MessageDisplay = ({ messages }) => {
 
     return (
         <ul className="message-list">
