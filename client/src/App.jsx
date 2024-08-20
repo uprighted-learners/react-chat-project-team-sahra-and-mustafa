@@ -9,7 +9,7 @@ import "./App.css";
 //! App function
 function App() {
   const [personalToken, setPersonalToken] = useState("");
-
+  const [selectedRoom, setSelectedRoom] = useState("");
   //! useEffect for storing token in local storage
   useEffect(() => {
     let token = localStorage.getItem("myToken");
@@ -51,22 +51,28 @@ function App() {
         {!personalToken ? (
           <Auth updateToken={updateToken} />
         ) : (
-          <button
-            style={{
-              position: "absolute",
-              top: 0,
-              right: 0,
-              margin: "1em",
-              backgroundColor: "orangered",
-            }}
-            onClick={() => removeToken()}
-          >
-            Logout
-          </button>
+          <>
+            <button
+              style={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+                margin: "1em",
+                backgroundColor: "orangered",
+              }}
+              onClick={() => removeToken()}
+            >
+              Logout
+            </button>
+            <h3>{selectedRoom && selectedRoom.name}</h3>
+            <Rooms setSelectedRoom={setSelectedRoom} />
+            {selectedRoom ? (
+              <Room selectedRoom={selectedRoom} />
+            ) : (
+              <h3>Please select a room</h3>
+            )}
+          </>
         )}
-
-        {/*
-         */}
       </main>
     </>
   );

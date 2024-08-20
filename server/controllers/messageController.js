@@ -15,12 +15,9 @@ router.post("/create", async (req, res) => {
     const room = await Room.findById(req.body.room);
     if (!room) return res.status(404).json({ message: "Room not found" });
 
-    const user = await User.findById(req.body.user);
-    if (!user) return res.status(404).json({ message: "User not found!" });
-
     const message = new Message({
       when: new Date(),
-      user: req.body.user,
+      user: req.user._id,
       room: req.body.room,
       body: req.body.body,
     });
@@ -34,9 +31,9 @@ router.post("/create", async (req, res) => {
   }
 });
 // get all messages in a room
-router.get("/display/:id", async (req, res) => {
+router.get("/display/:roomid", async (req, res) => {
   try {
-    const messages = await Message.find();
+    const messages = await Message.find({ room: req.params.roomid });
     res.status(200).json({ messages });
   } catch (err) {
     res.status(500).json({

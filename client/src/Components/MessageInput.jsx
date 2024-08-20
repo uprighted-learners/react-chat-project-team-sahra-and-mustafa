@@ -33,13 +33,7 @@ const MessageInput = ({ onSendMessage }) => {
         placeholder="User"
         required
       />
-      <input
-        type="text"
-        value={room}
-        onChange={(e) => setRoom(e.target.value)}
-        placeholder="Room"
-        required
-      />
+
       <input
         type="text"
         value={body}
