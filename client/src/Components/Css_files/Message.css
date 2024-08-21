@@ -9,7 +9,7 @@
     border: 2px solid white;
     box-shadow: 5px 5px white;
     border-radius: 0em 6em;
-    padding: 2em 5em;
+    padding: 2em 1em;
     background-color: orangered;
 }
 
@@ -46,3 +46,6 @@ input:hover{
     background-color: white;
     color: black;
 }
+
+/* Message display */
+

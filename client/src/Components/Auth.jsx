@@ -121,7 +121,16 @@ const Auth = (props) => {
         <button type="submit" className="signup_btn">
           {isSignUp ? "SignUp" : "LogIn"}
         </button>
-        <button type="button" onClick={() => setIsSignUp((prev) => !prev)}>
+        <button
+          type="button"
+          style={{
+            marginBottom: ".5em",
+            marginTop: "2em",
+            marginLeft: "5em",
+            marginRight: "5em",
+          }}
+          onClick={() => setIsSignUp((prev) => !prev)}
+        >
           {isSignUp ? "Need to LogIn?" : "Need to SignUp?"}
         </button>
       </form>
