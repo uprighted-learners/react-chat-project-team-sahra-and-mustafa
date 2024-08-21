@@ -1,8 +1,8 @@
 //! Import Area
+import { useState, useEffect } from "react";
 import Auth from "./Components/Auth";
 import Rooms from "./Components/Rooms";
 import Room from "./Components/Room";
-import { useState, useEffect } from "react";
 
 import "./App.css";
 
@@ -10,6 +10,7 @@ import "./App.css";
 function App() {
   const [personalToken, setPersonalToken] = useState("");
   const [selectedRoom, setSelectedRoom] = useState("");
+
   //! useEffect for storing token in local storage
   useEffect(() => {
     let token = localStorage.getItem("myToken");
