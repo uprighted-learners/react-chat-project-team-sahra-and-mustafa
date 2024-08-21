@@ -1,3 +1,4 @@
+/* Message form Css */
 .message_container {
     display: flex;
     flex-direction: column;
@@ -49,3 +50,12 @@ input:hover{
 
 /* Message display */
 
+.message-list{
+    border: 5px solid black;
+    padding: 1em;
+    list-style-type: none;
+    background-color: white;
+    opacity: .6;
+    color: black;
+    font-weight: bolder;
+}
