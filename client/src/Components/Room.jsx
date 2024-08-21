@@ -67,7 +67,7 @@ const Room = ({ selectedRoom }) => {
 
   return (
     <div className="room-container">
-      <h2>Welcome to Room {selectedRoom._id}</h2>
+      <h2>Welcome to Room {selectedRoom.name._id}</h2>
 
       {/* displays the list of messages */}
       {/* dandles sending new messages */}
