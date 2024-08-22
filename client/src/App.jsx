@@ -28,6 +28,7 @@ function App() {
 
   //! Remove Token callback
   const removeToken = () => {
+    setSelectedRoom("");
     console.log("Token removed");
     setPersonalToken("");
     localStorage.clear();
@@ -65,7 +66,6 @@ function App() {
             >
               Logout
             </button>
-            <h3>{selectedRoom && selectedRoom.name}</h3>
             <Rooms setSelectedRoom={setSelectedRoom} />
             {selectedRoom ? (
               <Room selectedRoom={selectedRoom} />
