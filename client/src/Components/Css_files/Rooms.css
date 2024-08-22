@@ -1,0 +1,20 @@
+.room-links{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: center;
+    list-style-type: none;
+    overflow-x: auto;
+    max-width: auto;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.room_button{
+    background-color: orangered;
+}
+
+.room_button:hover{
+    background-color: white;
+    color: black;
+}
