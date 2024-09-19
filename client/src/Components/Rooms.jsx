@@ -1,5 +1,6 @@
 //import necessary modules from React and Router DOM
 import React, { useEffect, useState } from "react";
+import "./Css_files/Rooms.css";
 
 // Rooms Component to display a list of available chatrooms
 const Rooms = ({ setSelectedRoom }) => {
@@ -33,12 +34,17 @@ const Rooms = ({ setSelectedRoom }) => {
   return (
     <div className="rooms-container">
       {/*header for the list of available rooms here */}
-      <ul>
+      <ul className="room-links">
         {rooms.map((room) => (
           // Map over the rooms array to create list item for each room
           <li key={room._id}>
             {/* using Link component is used to navigate to specific room's chat page */}
-            <button onClick={() => setSelectedRoom(room)}>{room.name}</button>
+            <button
+              className="room_button"
+              onClick={() => setSelectedRoom(room)}
+            >
+              {room.name}
+            </button>
           </li>
         ))}
       </ul>

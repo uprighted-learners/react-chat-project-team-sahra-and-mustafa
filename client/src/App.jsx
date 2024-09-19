@@ -1,8 +1,8 @@
 //! Import Area
+import { useState, useEffect } from "react";
 import Auth from "./Components/Auth";
 import Rooms from "./Components/Rooms";
 import Room from "./Components/Room";
-import { useState, useEffect } from "react";
 
 import "./App.css";
 
@@ -10,6 +10,7 @@ import "./App.css";
 function App() {
   const [personalToken, setPersonalToken] = useState("");
   const [selectedRoom, setSelectedRoom] = useState("");
+
   //! useEffect for storing token in local storage
   useEffect(() => {
     let token = localStorage.getItem("myToken");
@@ -27,6 +28,7 @@ function App() {
 
   //! Remove Token callback
   const removeToken = () => {
+    setSelectedRoom("");
     console.log("Token removed");
     setPersonalToken("");
     localStorage.clear();
@@ -64,7 +66,6 @@ function App() {
             >
               Logout
             </button>
-            <h3>{selectedRoom && selectedRoom.name}</h3>
             <Rooms setSelectedRoom={setSelectedRoom} />
             {selectedRoom ? (
               <Room selectedRoom={selectedRoom} />

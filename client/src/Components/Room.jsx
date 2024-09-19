@@ -35,7 +35,7 @@ const Room = ({ selectedRoom }) => {
     //callback when component mounts or roomid changes
     //dependency array [roomId] will ensure it runs when roomId changes
     fetchMessages();
-  }, []);
+  }, [selectedRoom._id]);
 
   // Function to handle sending a new message
   //POST Method specified, content-type, and Authorization header with JWT token
@@ -67,12 +67,17 @@ const Room = ({ selectedRoom }) => {
 
   return (
     <div className="room-container">
-      <h2>Welcome to Room {selectedRoom._id}</h2>
+      <h2>Welcome to Room {selectedRoom.name._id}</h2>
 
       {/* displays the list of messages */}
       {/* dandles sending new messages */}
-
-      <MessageDisplay messages={messages} />
+      {/* 
+      {selectedRoom._id ? (
+        <MessageInput onSendMessage={handleSendMessage} />
+      ) : (
+        <p>Loading...</p>
+      )} */}
+      <MessageDisplay selectedRoom={selectedRoom} messages={messages} />
 
       <MessageInput onSendMessage={handleSendMessage} />
     </div>

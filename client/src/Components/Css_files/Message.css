@@ -1,3 +1,4 @@
+/* Message form Css */
 .message_container {
     display: flex;
     flex-direction: column;
@@ -9,7 +10,7 @@
     border: 2px solid white;
     box-shadow: 5px 5px white;
     border-radius: 0em 6em;
-    padding: 2em 5em;
+    padding: 2em 1em;
     background-color: orangered;
 }
 
@@ -45,4 +46,16 @@ input:hover{
     cursor: pointer;
     background-color: white;
     color: black;
+}
+
+/* Message display */
+
+.message-list{
+    border: 5px solid black;
+    padding: 1em;
+    list-style-type: none;
+    background-color: white;
+    opacity: .6;
+    color: black;
+    font-weight: bolder;
 }
